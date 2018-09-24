@@ -1,0 +1,29 @@
+{
+  "name": "new-york-times-react-app",
+  "version": "1.0.0",
+  "description": "MERN stack that will query NYT articles API, display results, and save articles. UT Coder Camp homework",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "seed": "node scripts/seedDB.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "yarn && cd client && yarn",
+    "heroku-prebuild": "cd client && yarn install",
+    "heroku-postbuild": "node scripts/build.js"
+  },
+  "author": "Tom Sampson",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.17"
+  }
+}
