@@ -17,12 +17,30 @@ app.use(routes);
 // mongoose promises
 mongoose.Promise = global.Promise;
 // Connect to DB
+/*
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/nytreactsaved",
   {
     useMongoClient: true
   }
 );
+*/
+var db = "mongodb://localhost/nytreactsaved";
+
+if(process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect(db, function(err){ 
+    if(err){
+      console.log(err);
+    } else {
+      console.log (`mongoose connected to ${db}` )
+      useNewUrlParser: true;
+    }
+  })
+}
+
+
 
 // Start the API server
 app.listen(PORT, function() {
